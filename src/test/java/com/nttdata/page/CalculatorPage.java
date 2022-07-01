@@ -8,5 +8,5 @@ public class CalculatorPage {
     public static By secondNumber = By.id("number2Field");
     public static By operationListBox = By.id("selectOperationDropdown");
     public static By calculateButton = By.id("calculateButton");
-    public static By answerField = By.id("numberAnswer");
+    public static By answerField = By.id("numberAnswerField");
 }

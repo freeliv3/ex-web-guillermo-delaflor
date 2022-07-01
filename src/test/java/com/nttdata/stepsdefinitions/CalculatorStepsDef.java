@@ -8,6 +8,7 @@ import io.cucumber.java.ca.Cal;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -41,21 +42,22 @@ public class CalculatorStepsDef {
         CalculatorSteps calculatorSteps = new CalculatorSteps(driver);
         calculatorSteps.typeFirstNumber(primero);
         calculatorSteps.typeSecondNumber(segundo);
-        calculatorSteps.chooseOperation();
         screenShot();
 
     }
     @Cuando("al dar Operation {string}")
-    public void al_dar_operation(String string) {
+    public void al_dar_operation(String value) {
         CalculatorSteps calculatorSteps = new CalculatorSteps(driver);
+        calculatorSteps.chooseOperation(value);
         calculatorSteps.calculate();
         screenShot();
     }
     @Entonces("valido que el Answer:  {string}")
     public void valido_que_el_answer(String resultado) {
-
+        CalculatorSteps calculatorSteps = new CalculatorSteps(driver);
+        String _resultado = calculatorSteps.validarResultado(resultado);
+        Assertions.assertEquals(_resultado,resultado);
     }
-
 
 
     public void screenShot() {

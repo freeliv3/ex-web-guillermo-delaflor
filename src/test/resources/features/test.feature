@@ -16,7 +16,7 @@
     Escenario: Resta de dos números
       Dado que me encuentro en la página de inicio de TestSheepNZ
       Cuando ingreso dos valores FirstNumber: "10" y SecondNumber: "2"
-      Y al dar Operation "Substract"
+      Y al dar Operation "Subtract"
       Entonces valido que el Answer:  "8"
 
     Escenario: Multiplicación de dos números
@@ -36,3 +36,9 @@
       Cuando ingreso dos valores FirstNumber: "10" y SecondNumber: "2"
       Y al dar Operation "Concatenate"
       Entonces valido que el Answer:  "102"
+
+    Escenario: Mensaje de error alfanumérico
+      Dado que me encuentro en la página de inicio de TestSheepNZ
+      Cuando ingreso dos valores FirstNumber: "10a" y SecondNumber: "2"
+      Y al dar Operation "Add"
+      Entonces valido que el Answer:  "Number 1 is not a number"
